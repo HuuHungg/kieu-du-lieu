@@ -1,40 +1,22 @@
+let a = 1
+console.log(a.toString())
 
-let myString = "毎日 JS 日本語を勉強してるがんばりましょう JS";
-let myString2 = "Hoc JS tai F8 JS"
-let myString3 = "   勉強してる　　"
-// length
-console.log(myString.length)
+let b = 3.14
+console.log(b.toFixed())
 
-// Find index
-// Tìm vị trí JS cuối cùng
-console.log(myString.lastIndexOf('JS'))
+let fullNumber = new Number(9)
 
-// Tìm vị trí js đầu tiên 
-console.log(myString.indexOf('JS',7))
+console.log(fullNumber)
 
-// Tìm kiếm với search
-console.log(myString.search('JS'))
+let c = 4;
 
-// 3. Cut string
-console.log(myString2.slice(4))
-console.log(myString2.slice(-3, -1))
-console.log(myString2.substring(4,6))
+console.log( typeof c)
 
-// Replace ghi de
-console.log(myString2.replace(/JS/g, 'Javascript'))
+let x = 9.656
+console.log(x.toExponential(2))
 
-// Uppercase // Lowercase
+let y = 1235.179777
+console.log(y.toFixed(3))
 
-console.log(myString2.toUpperCase())
-console.log(myString2.toLowerCase())
-
-// Trim Loại bỏ kí tự thừa
-console.log(myString3.trim())
-
-// split: 
-let Languages = 'Javascript'
-console.log(Languages.split(''))
-
-let fine = 'I am cooking dinner now'
-console.log(fine[40]) // Cach 1
-console.log(fine.charAt(2)) // Cach 2
+let date = new Date()
+console.log(date)
