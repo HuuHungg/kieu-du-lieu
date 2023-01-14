@@ -41,5 +41,5 @@ let mergeCourse = fruit2.concat(game)
 console.log(mergeCourse)
 
 // Slicing (slice): cắt một vài phần tử của mảng (Ví trí đầu tiên là bắt đầu cắt, vị trí thứ hai là kết thúc cắt)
-let fullCourse = ['Rect', 'MySQL', 'FE', 'BE']
+let fullCourse = ['Rect', 'MySQL', 'FE', 'BE'] 
 console.log(fullCourse.slice(3))
