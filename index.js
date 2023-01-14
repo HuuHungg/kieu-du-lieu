@@ -36,4 +36,5 @@ let Languages = 'Javascript'
 console.log(Languages.split(''))
 
 let fine = 'I am cooking dinner now'
-console.log(fine[40])
+console.log(fine[40]) // Cach 1
+console.log(fine.charAt(2)) // Cach 2
