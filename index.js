@@ -1,22 +1,21 @@
-let a = 1
-console.log(a.toString())
+// Cach 1
+let myArray = [
+    'Javascript',
+    'PHP',
+    'Ruby',
+    undefined,
+    null,
+]
 
-let b = 3.14
-console.log(b.toFixed())
+console.log(Array.isArray(myArray))
 
-let fullNumber = new Number(9)
 
-console.log(fullNumber)
+// Cach 2
 
-let c = 4;
+let myArraydemo = new Array ('PHP', 'ReactJS', 'NodeJS')
+console.log(myArraydemo)
 
-console.log( typeof c)
 
-let x = 9.656
-console.log(x.toExponential(2))
+let fullCourse = ['mySql', 'file', 'react']
+console.log(fullCourse[0])
 
-let y = 1235.179777
-console.log(y.toFixed(3))
-
-let date = new Date()
-console.log(date)
