@@ -1,45 +1,21 @@
-let course = [
-    'Javascript',
-    'PHP',
-    'Ruby',
-    'PHP'
-]
 
-// to string
-console.log(course.toString())
+let emailKey = 'email';
 
-// Join hoạt động như string, có thể chỉ đinhj dấu phân cách
-console.log(course.join(' - '))
 
-// Pop Xoá element ở cuối mảng và trả về phần tử đã xoá
-console.log(course.pop()) // PHP
-console.log(course)
+let myInfo = {
+    name: 'Huu Hung',
+    age: 20,
+    address: 'HN, VN',
+    [emailKey]: 'huuhungnguyen2002@gmail.com',
+    getName: function() {
+        return this.name
+    }
+}
+// Muốn xoá một key thì dùng delete
 
-// Push thêm một hoặc nhiều phần tử ở cuối mảg và trả về độ dài mới của mảng
+delete myInfo.age;
+delete myInfo.address
 
-let fruit = ['Orang', 'Apple']
-fruit.push('Mango', 'Banana',)
-console.log(fruit)
 
-// Shift xoá phần tử ở đầu mảng và trả về phần tử đã xoá
-console.log(course.shift()) // Javascript
-console.log(course)
-
-// Unshif thêm một hoặc nhiều phần tử ở đầu mảng và trả về độ dài mới của mảng
-let fruit2 = ['Orang', 'Apple',]
-fruit2.unshift('watermelon')
-console.log(fruit2)
-
-// Splice : cắt xoá chèn phần tử vào mảng, (vị trí bắt đầu, số phần tử muốn xoá, element muốn thêm vào)
-let game = ['nr', 'lw','lm']
-game.splice(1,0,'dra','mobile','online')
-console.log(game)
-
-// Concat: Nối mảng array với nhau
-
-let mergeCourse = fruit2.concat(game)
-console.log(mergeCourse)
-
-// Slicing (slice): cắt một vài phần tử của mảng (Ví trí đầu tiên là bắt đầu cắt, vị trí thứ hai là kết thúc cắt)
-let fullCourse = ['Rect', 'MySQL', 'FE', 'BE'] 
-console.log(fullCourse.slice(3))
+console.log(myInfo)
+console.log (myInfo.getName())
