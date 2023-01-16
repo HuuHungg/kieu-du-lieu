@@ -1,21 +1,22 @@
+function Person(firstName,lastName,age,eyeColor) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.eyeColor = eyeColor;
 
-let emailKey = 'email';
-
-
-let myInfo = {
-    name: 'Huu Hung',
-    age: 20,
-    address: 'HN, VN',
-    [emailKey]: 'huuhungnguyen2002@gmail.com',
-    getName: function() {
-        return this.name
+    this.getName = function() {
+        return `${this.firstName} ${this.lastName} ${this.age} ${this.eyeColor} `
     }
 }
-// Muốn xoá một key thì dùng delete
-
-delete myInfo.age;
-delete myInfo.address
 
 
-console.log(myInfo)
-console.log (myInfo.getName())
+
+let myMother = new Person('Sally','Rally',40,"black")
+let myFather = new Person('Fine', 'Cake', 45, "blue")
+
+myMother.title = 'She is cooking dinner'
+myFather.style = 'He is eating dinner'
+
+console.log(myMother.getName())
+
+console.log(myFather.age)
