@@ -1,41 +1,18 @@
-// // let i = 0
-// // while ( i < 10) {
-// //     i++;
-// //     console.log(i);
-// // }   
+// Break: Khi muốn thoát khỏi vòng lặp
+// Continue khi muốn bỏ qua một vài lần lặp của vòng lặp
 
-// let myArray = [
-//     'Javascript',
-//     'PHP',
-//     'Ruby'
-// ]
+for (var i=0; i < 10; i++) {
+    console.log(i)
+    
+    if(i>=7) {
+        break
+    } 
+}
 
-
-// let i = 0
-
-// while(i < myArray.length) {
-//     console.log(myArray[i])
-//     i++;
-// }
-
-
-// do while
-
-// let  i = 0
-// do {
-//     i++;
-//     console.log(i)
-
-// }while(i < 5)
-
-
-let i = 0;
-let isSuccess = false;
-
-do {
-    i++;
-    console.log('Nap the la ' + i)
-    if(false) {
-        return isSuccess = true;
+for(let a = 0; a < 10; a++) {
+    if(a%2 !== 0) {
+        continue;
     }
-}while (!isSuccess && i <= 3)
+    
+    console.log(a)
+}
