@@ -10,13 +10,14 @@ function Person(firstName,lastName,age,eyeColor) {
 }
 
 
+Person.prototype.className = 'F8';
+Person.prototype.getClassName = function() {
+    return this.className;
+}
+
 
 let myMother = new Person('Sally','Rally',40,"black")
 let myFather = new Person('Fine', 'Cake', 45, "blue")
 
-myMother.title = 'She is cooking dinner'
-myFather.style = 'He is eating dinner'
-
-console.log(myMother.getName())
-
-console.log(myFather.age)
+console.log(myMother.className)
+console.log(myFather.getClassName())
