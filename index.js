@@ -1,18 +1,11 @@
-// Break: Khi muốn thoát khỏi vòng lặp
-// Continue khi muốn bỏ qua một vài lần lặp của vòng lặp
+var myArray = [
+    [1,2],
+    [3,4],
+    [5,6],  
+];
 
-for (var i=0; i < 10; i++) {
-    console.log(i)
-    
-    if(i>=7) {
-        break
-    } 
-}
-
-for(let a = 0; a < 10; a++) {
-    if(a%2 !== 0) {
-        continue;
-    }
-    
-    console.log(a)
+for(var i = 0; i < myArray.length; i++) {
+        for (var j = 0; j<myArray[i].length; j++) {
+            console.log(myArray[i][j])
+        }
 }
