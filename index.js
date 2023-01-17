@@ -1,29 +1,41 @@
-// Lấy ra từng phẩn tử của một mảng 
+// // let i = 0
+// // while ( i < 10) {
+// //     i++;
+// //     console.log(i);
+// // }   
 
-let languages = [
-    'Javascript',
-    'PHP',
-    'Ruby'
-]
-
-for(var value of languages) {
-    console.log(value)
-}
-
-
-let languages2= 'Javascript';
-for(var index of languages2) {
-    console.log(index)
-}
+// let myArray = [
+//     'Javascript',
+//     'PHP',
+//     'Ruby'
+// ]
 
 
-// Object 
+// let i = 0
 
-let myInfo = {
-    name: 'Huu Hung',
-    age: 20
-}
+// while(i < myArray.length) {
+//     console.log(myArray[i])
+//     i++;
+// }
 
-for(var value of Object.keys(myInfo)) {
-    console.log(value)
-}
+
+// do while
+
+// let  i = 0
+// do {
+//     i++;
+//     console.log(i)
+
+// }while(i < 5)
+
+
+let i = 0;
+let isSuccess = false;
+
+do {
+    i++;
+    console.log('Nap the la ' + i)
+    if(false) {
+        return isSuccess = true;
+    }
+}while (!isSuccess && i <= 3)
