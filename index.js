@@ -127,3 +127,23 @@ let totalCoin = fullCourse.map(function(course, index) {
 })
 
 console.log(totalCoin)
+
+
+// Reduce
+
+let resultCoin = 0;
+
+for(let course of courses) {
+    resultCoin += course.coin
+}
+
+console.log(resultCoin)
+
+
+
+
+let resultTotal = courses.reduce(function(accumentLatter, currentValue) {
+    return accumentLatter + currentValue
+},0) 
+
+console.log(resultTotal)
