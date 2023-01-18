@@ -4,7 +4,7 @@
     // Some() // Chỉ cần một ông trong mảng trả về điều kiện đúng, nó sẽ ngừng lại sự kiểm tra khi gặp kết quả đúng trả về kiểu boolean
     // find() // Tìm kiếm , nêú có kết quả thì nó sẽ trả về kết quả đó, nếu không có thì nó sẽ trả về null hoặc undifine
     // filter() // Cũng là tìm kiếm nhưng nó sẽ trả về tất cả phần tử thoả mãn
-    // map() 
+    // map() // Muốn chỉnh sửa thay đổi element của array
     // reduce()
 
 
@@ -92,4 +92,16 @@ let isFilter = courses.filter(function(course) {
 })
 
 console.log(isFilter)
+
+
+
+// map 
+
+let handler = function(course, index) {
+        return `<h2> ${course.name} </h2>`
+}
+
+let newCourse = courses.map(handler)
+
+console.log(newCourse.join(''))
 
