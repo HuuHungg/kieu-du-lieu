@@ -5,7 +5,7 @@
     // find() // Tìm kiếm , nêú có kết quả thì nó sẽ trả về kết quả đó, nếu không có thì nó sẽ trả về null hoặc undifine
     // filter() // Cũng là tìm kiếm nhưng nó sẽ trả về tất cả phần tử thoả mãn
     // map() // Muốn chỉnh sửa thay đổi element của array
-    // reduce()
+    // reduce() Nhận về một giá trị duy nhất sau khi tính toán trên một array
 
 
 let courses = [
@@ -105,3 +105,25 @@ let newCourse = courses.map(handler)
 
 console.log(newCourse.join(''))
 
+
+let fullCourse = [
+    {
+        name: 'Javascript',
+        coin: 200
+    },
+    {
+        name: 'ReactJS',
+        coin: 400
+    }
+]
+
+let totalCoin = fullCourse.map(function(course, index) {
+        return  {
+            name: `full course at Center ${course.name}`,
+            coin:  `Khoá học có giá là:  ${course.coin}`,
+            timeStudy: `2hours everyday`,
+            index: index,
+        }
+})
+
+console.log(totalCoin)
