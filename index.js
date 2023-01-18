@@ -143,7 +143,7 @@ console.log(resultCoin)
 
 
 let resultTotal = courses.reduce(function(accumentLatter, currentValue) {
-    return accumentLatter + currentValue
+    return accumentLatter + currentValue.coin
 },0) 
 
 console.log(resultTotal)
