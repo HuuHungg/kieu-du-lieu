@@ -1,24 +1,8 @@
-Array.prototype.reduce2 = function(callback,result) {
-    // Không truyền index value
-    let i = 0
-    if(arguments.length<2) {
-        i = 1
-        result = this[0]
-    }
+// Kiểm tra 1 phần tử có tồn tại trong một mảng hay không
 
-    // Truyển index value
-    for(; i < this.length; i++) {
-        result = callback(result, this[i], i, this)
-    }
+let title = 'Responsive web design';
+console.log(title.includes('web design', 1))
 
-    return result
-}
+let course = ['Javscript', 'PHP', 'Ruby'] 
 
-const number = [1,2,3,4,5]
-
-const result = number.reduce2 ((total, number) => {
-    return total + number
-},10)
-
-console.log(result)
-
+console.log(course.includes('PHP'))
