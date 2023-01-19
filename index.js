@@ -1,8 +1,16 @@
-// Kiểm tra 1 phần tử có tồn tại trong một mảng hay không
+// callback 
+// Là hàm (function) được truyền qua đối số 
 
-let title = 'Responsive web design';
-console.log(title.includes('web design', 1))
+// 
 
-let course = ['Javscript', 'PHP', 'Ruby'] 
+function myFunction (param) {
+    if(typeof param === 'function') {
+        param('F8にITを勉強してる')
+    }
+}
 
-console.log(course.includes('PHP'))
+function myCallback(value) {
+    console.log('Value: ', value)
+}
+
+myFunction(myCallback)
