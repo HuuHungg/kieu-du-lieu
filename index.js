@@ -1,46 +1,24 @@
-
-let depthArray = [1,2,[3,4],5,6,7,8,[9,10]]
-let  resultArray = depthArray.reduce(function(acc,curr)
-{
-    return acc.concat(curr)
-},[])
-console.log(resultArray)
-
-
-let topics = [
-    {
-        topics: 'FrontEnd',
-        courses: [
-            {
-                id: 1,
-                title: 'NodeJs'
-                
-            },
-            {
-                id: 2,
-                title: 'ReactJS'
-            }
-        ],
-    },
-
-    {
-        topics: 'BackEnd', 
-        courses: [
-            {
-                id:3,
-                title: 'PHP,Ruby'
-            },
-            {
-                id: 4,
-                title:'NodeJS'
-            }
-        ]
-
+Array.prototype.reduce2 = function(callback,result) {
+    // Không truyền index value
+    let i = 0
+    if(arguments.length<2) {
+        i = 1
+        result = this[0]
     }
-]
 
-let resultTopics =  topics.reduce(function(acc,crr) {
-        return acc.concat(crr.courses) 
-},[])
+    // Truyển index value
+    for(; i < this.length; i++) {
+        result = callback(result, this[i], i, this)
+    }
 
-console.log(resultTopics)
+    return result
+}
+
+const number = [1,2,3,4,5]
+
+const result = number.reduce2 ((total, number) => {
+    return total + number
+},10)
+
+console.log(result)
+
