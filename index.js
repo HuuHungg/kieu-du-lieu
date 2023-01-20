@@ -1,17 +1,26 @@
 
-let course = [
-    'Javascript',
-    'PHP'
-]
-
-course.length = 10;
-
-for (let index in course) {
-    console.log(course[index])
+Array.prototype.forEach2 = function(cb) {
+    for(let i in courses) {
+        if(courses.hasOwnProperty(i)) {
+            cb(courses[i], i, courses)
+        }
+    }
 }
 
 
-let courses2 = new Array(10);
-courses2.push('Javascript', 'PHP', 'Ruby');
-console.log(courses2)
+
+let courses = [
+    'Javascript',
+    'PHP',
+    'Ruby'
+]
+
+
+
+courses.forEach2(function(course, index, array) {
+    console.log(course, index, array)
+})
+
+
+
 
