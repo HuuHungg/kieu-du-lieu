@@ -1,28 +1,17 @@
 
+let course = [
+    'Javascript',
+    'PHP'
+]
 
+course.length = 10;
 
-Array.prototype.map2 = function(cb){
-    let output = []
-    let arrayLength = this.length
-    
-    for(let i = 0; i < arrayLength; i++) {
-       let result = cb(this[i], i);
-        output.push(result)
-    }
-    return output
+for (let index in course) {
+    console.log(course[index])
 }
 
 
-let courses = [
-    'Javascript',
-    'PHP',
-    'Ruby'
-]
- 
-let htmls = courses.map2(function(course) {
-    return `<h2> ${course} </h2>`
-});
-
-console.log(htmls.join(''))
-
+let courses2 = new Array(10);
+courses2.push('Javascript', 'PHP', 'Ruby');
+console.log(courses2)
 
