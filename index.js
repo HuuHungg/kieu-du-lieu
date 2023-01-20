@@ -1,16 +1,28 @@
-// callback 
-// Là hàm (function) được truyền qua đối số 
 
-// 
 
-function myFunction (param) {
-    if(typeof param === 'function') {
-        param('F8にITを勉強してる')
+
+Array.prototype.map2 = function(cb){
+    let output = []
+    let arrayLength = this.length
+    
+    for(let i = 0; i < arrayLength; i++) {
+       let result = cb(this[i], i);
+        output.push(result)
     }
+    return output
 }
 
-function myCallback(value) {
-    console.log('Value: ', value)
-}
 
-myFunction(myCallback)
+let courses = [
+    'Javascript',
+    'PHP',
+    'Ruby'
+]
+ 
+let htmls = courses.map2(function(course) {
+    return `<h2> ${course} </h2>`
+});
+
+console.log(htmls.join(''))
+
+
