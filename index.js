@@ -1,8 +1,11 @@
 
+// hasOwnProperty
+
+
 Array.prototype.forEach2 = function(cb) {
-    for(let i in courses) {
-        if(courses.hasOwnProperty(i)) {
-            cb(courses[i], i, courses)
+    for(let index in this) {
+        if(this.hasOwnProperty(index)) {
+            cb(this[index], index, this)
         }
     }
 }
@@ -15,7 +18,9 @@ let courses = [
     'Ruby'
 ]
 
+courses.push('NodeJs', 'ReactJS')
 
+console.log(courses)
 
 courses.forEach2(function(course, index, array) {
     console.log(course, index, array)
