@@ -1,43 +1,47 @@
+Array.prototype.some2 = function(cb) {
+    let output = false
 
-Array.prototype.filter2 = function(cb) {
-
-    let outPush = []
-    for(let i in this) {
-        if(this.hasOwnProperty(i)) {
-            let result = cb(this[i],i,this)
-            if(result) {
-                outPush.push(this[i])
+    for( let index in this) {
+        if(this.hasOwnProperty(index)) {
+            if(cb(this[index], index, this)) {
+                output = true;
+                break
             }
+
         }
     }
-return outPush
-
+    return output
 }
+
 
 
 let courses = [
     {
         name:'Javascript',
         coin: 680,
+        isFinish: false,
     },
     {
         name: 'PHP',
         coin: 690,
+        isFinish: false,
     },
     {
         name: 'NodeJS',
         coin: 710,
+        isFinish: true
     },
     {
         name: 'ReactJS',
-        coin: 800
+        coin: 800,
+        isFinish: false,
+
     }
 ]
 
-let courseFilter = courses.filter2(function(course, index, arr) {
-    console.log(course, index)
-    return course.coin > 700
+// Tối thiểu một phần tử thoả mãn là trả về true
+let result = courses.some2(function(course,index) {
+    return course.isFinish
 })
 
-console.log(courseFilter)
-
+console.log(result)
