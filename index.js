@@ -1,31 +1,43 @@
 
-// hasOwnProperty
+Array.prototype.filter2 = function(cb) {
 
-
-Array.prototype.forEach2 = function(cb) {
-    for(let index in this) {
-        if(this.hasOwnProperty(index)) {
-            cb(this[index], index, this)
+    let outPush = []
+    for(let i in this) {
+        if(this.hasOwnProperty(i)) {
+            let result = cb(this[i],i,this)
+            if(result) {
+                outPush.push(this[i])
+            }
         }
     }
+return outPush
+
 }
 
 
-
 let courses = [
-    'Javascript',
-    'PHP',
-    'Ruby'
+    {
+        name:'Javascript',
+        coin: 680,
+    },
+    {
+        name: 'PHP',
+        coin: 690,
+    },
+    {
+        name: 'NodeJS',
+        coin: 710,
+    },
+    {
+        name: 'ReactJS',
+        coin: 800
+    }
 ]
 
-courses.push('NodeJs', 'ReactJS')
-
-console.log(courses)
-
-courses.forEach2(function(course, index, array) {
-    console.log(course, index, array)
+let courseFilter = courses.filter2(function(course, index, arr) {
+    console.log(course, index)
+    return course.coin > 700
 })
 
-
-
+console.log(courseFilter)
 
