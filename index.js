@@ -1,17 +1,12 @@
-// DOM attributes
+// innerText 
 
-let headingElement = document.querySelector('h1')
-console.log(headingElement)
+let headingElement = document.querySelector('.heading')
 
-headingElement.id = 'fine'
-headingElement.className = 'work'
+console.log(headingElement.innerText)
+console.log(headingElement.textContent)
 
-// set Attribute
-headingElement.setAttribute('href', 'heading2')
-headingElement.setAttribute('title', 'heading3')
+// Sửa nội dung của textnode nằm trong elementnode
 
+headingElement.innerText = '日本語が難しいですので頑張りましょう'  
+console.log(headingElement.innerText)
 
-// get Attribute: Lấy ra attribute
-console.log(headingElement.getAttribute('class'))
-console.log(headingElement.getAttribute('title'))
-console.log(headingElement.getAttribute('id'))
