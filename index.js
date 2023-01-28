@@ -1,8 +1,17 @@
-let headings = document.querySelectorAll('.heading')
-console.log(headings)
+// DOM attributes
 
-for(let i = 0; i < headings.length ; i++) {
-    console.log(headings[i])
-}
-console.log(document.forms['form-2'])
-document.write('Hello guys')
+let headingElement = document.querySelector('h1')
+console.log(headingElement)
+
+headingElement.id = 'fine'
+headingElement.className = 'work'
+
+// set Attribute
+headingElement.setAttribute('href', 'heading2')
+headingElement.setAttribute('title', 'heading3')
+
+
+// get Attribute: Lấy ra attribute
+console.log(headingElement.getAttribute('class'))
+console.log(headingElement.getAttribute('title'))
+console.log(headingElement.getAttribute('id'))
