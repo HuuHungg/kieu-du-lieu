@@ -1,48 +1,36 @@
-Array.prototype.every2 = function(cb) {
-    
-    let output = true
-    
-    for(let index in this) {
-        if(this.hasOwnProperty(index)) {
-            let result = cb(this[index], index, this)
-            if(!result) {
-                output = false;
-                break;
-            }
-        }
-    }
-    
-    return output
-}
+// HTML DOM
+// 1. Element: ID, class, tag, CSS  selector, HTML collection
+// 2. Attribute
+// 3. Text
 
 
-let courses = [
-    {
-        name:'Javascript',
-        coin: 680,
-        isFinish: true,
-    },
-    {
-        name: 'PHP',
-        coin: 690,
-        isFinish: true,
-    },
-    {
-        name: 'NodeJS',
-        coin: 710,
-        isFinish: true,
-    },
-    {
-        name: 'ReactJS',
-        coin: 800,
-        isFinish: true,
-
-    }
-]
-
-// Tối thiểu một phần tử thoả mãn là trả về true
-let result = courses.every2(function(course,index,arr) {
-    return course.isFinish
-})
-
+// ID
+let result = document.getElementById('heading')
 console.log(result)
+
+// ClassName
+
+let headingNodes = document.getElementsByClassName('heading2')
+console.log(headingNodes)
+
+// Tag Name: Lấy ra tên của thẻ
+let tagNodes = document.getElementsByTagName('h2')
+console.log(tagNodes)
+let pNodes = document.getElementsByTagName('p')
+console.log(pNodes)
+
+// CSS selector
+
+let selector = document.querySelector('.box .heading-3:nth-child(3)') 
+// Muốn lấy ra tất cả thì dùng querySelectorAll     
+console.log(selector)
+
+let selector2 = document.querySelectorAll('.heading-3')
+console.log(selector2)
+
+// HTML Collection
+// anchors: Lấy ra tất cả thẻ a có atribute là Name
+
+console.log(document.anchors);
+
+
