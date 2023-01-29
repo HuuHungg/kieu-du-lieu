@@ -1,12 +1,11 @@
-// innerText 
+// Thêm nội dung vào DOM
+// innerHTML and outerHTML
 
-let headingElement = document.querySelector('.heading')
+// innerHTML and outerHTML
+let boxElement = document.querySelector('.box');
+boxElement.outerHTML = '<span>毎日２時間ぐらいITを勉強してる頑張りましょう　 </span>'
+console.log(boxElement.innerHTML)
 
-console.log(headingElement.innerText)
-console.log(headingElement.textContent)
+// console.log(document.querySelector('h1').textContent)
 
-// Sửa nội dung của textnode nằm trong elementnode
-
-headingElement.innerText = '日本語が難しいですので頑張りましょう'  
-console.log(headingElement.innerText)
 
