@@ -1,40 +1,21 @@
-// Event listener
+// 1. JSON là một định dạng dữ liệu (chuỗi)
+// 2. JavaScript object notation
+// 3. JSON: Number, Boolean, Null, Array, Object, String
+// Mã hoá / Giả mã
+// Encode /decode
+// Stringify: Từ Javascript types -> JSON
+// Parse:  Từ JSON -> Javascript types
 
 
-let btn = document.getElementById('btn')
+let json1 = '["Javascript", "PHP"]'
+let json = '{"name": "Son dang", "age": 18}'
 
-// DOM EVENT
-// btn.onclick = function() {
-//     // Viec 1
-//     console.log('Viec 1')
+let a = '"Huu Hung Nguyen"'
+console.log( JSON.parse(json))
 
-//     // Viec 2
-//     console.log('Viec 2')
-    
-//     // Viec 3
-//     alert('Viec 3')
-// }    
-
-// setTimeout(function() {
-//    btn.onclick = function() {}
-// },3000)
-
-
-function work1() {
-    console.log('I am studying IT')
-}
-
-function work2() {
-    console.log('I am studying English everyday')
-}
-
-btn.addEventListener('click', work1)
-btn.addEventListener('click', work2)
-
-
-setTimeout(function() {
-    btn.removeEventListener('click', work1)
-
-},3000)
-
+console.log(JSON.stringify({
+    name: 'Song Dang',
+    age: 16,
+    test: function() {}
+}))
 
