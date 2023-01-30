@@ -1,51 +1,40 @@
-// 1. preventDefault: Bỏ đi hành vi mặc định 
+// Event listener
 
-// let aElement = document.links;
 
-// for(let i = 0; i < aElement.length; ++i) {
-//     aElement[i].onclick = function(e) {
+let btn = document.getElementById('btn')
 
-//         if(!e.target.href.startsWith('https://f8.edu.vn')) {
-//             e.preventDefault();
-//         }
-//     }
-// }
+// DOM EVENT
+// btn.onclick = function() {
+//     // Viec 1
+//     console.log('Viec 1')
 
-let aElement = document.links
-let aLength = aElement.length
+//     // Viec 2
+//     console.log('Viec 2')
+    
+//     // Viec 3
+//     alert('Viec 3')
+// }    
 
-for(let i=0; i< aLength; ++i) {
-    aElement[i].onclick = function(e) {
-        if(!e.target.href.startsWith('https://google.com.vn')) {
-            e.preventDefault()
-        }
-    }
+// setTimeout(function() {
+//    btn.onclick = function() {}
+// },3000)
+
+
+function work1() {
+    console.log('I am studying IT')
 }
 
-
-let ulElement = document.querySelector('ul');
-ulElement.onmousedown = function(e) {
-    e.preventDefault()
+function work2() {
+    console.log('I am studying English everyday')
 }
 
-
-ulElement.onclick = function(e) {
-    console.log(e.target)
-}
+btn.addEventListener('click', work1)
+btn.addEventListener('click', work2)
 
 
-// 2. stopPropagation: Ngăn chặn hành vi nổi bọt lan truyền
+setTimeout(function() {
+    btn.removeEventListener('click', work1)
 
-
-document.querySelector('div').onclick = 
-    function() {
-        console.log('DIV')
-    }
-
-document.querySelector('button').onclick = 
-    function(e) {
-        e.stopPropagation();
-        console.log('Click me')
-    }
+},3000)
 
 
