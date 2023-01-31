@@ -1,80 +1,26 @@
-// Sync : Đồng bộ
-// Ásync: Bất đồng bộ (setTimeout, setInterval, fetch, XMLHttpRequest, file reading)
-// request animation frame
+function sleep(ms) {
+    return new Promise((resolve) => {
+        setTimeout(resolve, ms)
+    })
+}
 
-// setTimeout(function() {
-//     console.log(1)
-// }, 1000)
-
-// console.log(2)
-
-// // Callback hell 
-// // Pyramid of doom
-// // Nỗi đau
-// setTimeout(function() {
-//     console.log(1) // viec 1
-//         setTimeout(function() {
-//             console.log(2) 
-//             setTimeout(function() {
-//                 console.log(3) 
-//                     setTimeout(function() {
-//                         console.log(4)
-//                     },1000)
-//             },1000)
-//         },1000)
-// },1000)
-
-
-// Lý thuyết, cách hoạt động
-
-let promise = new Promise(
-    // Executor
-    function(resolve, reject) {
-        // Logic
-        // Thành công: resolve()
-        // Thất bại: reject()        
-
-        // Fake call API
-        resolve([
-            {
-                id: 1,
-                name: 'Javascript'
-            },
-            {
-                id: 2,
-                name: 'PHP'
-            }
-        ]);
-        
-        // reject ('Co loi')
-    }
-);
-
-// Chain
-
-
-promise
-    .then(function() {
-        return new Promise(function(resolve) {
-            setTimeout(() => {
-                resolve('Huu Hng Nguyen')
-            },3000)
-        })
+sleep(1000)
+    .then(() => {
+        console.log('Huu Hung')
+        return sleep(1000)
     })
 
-    .then(function(data) {
-        console.log(data)
+    .then(() => {
+        console.log('Huu Hung Nguyen dang hoc')
+        return sleep(1000)
     })
 
-    .catch(function(err) {
-        console.log(err)
+    .then(()=> {
+        console.log('May toan that bai thoi')
+        return sleep(1000)
     })
 
-    .finally(function() {
-        console.log('Done')
+    .then(() => {
+        console.log('May phai co len')
+        return sleep(1000)
     })
-
-
-
-
-
