@@ -49,16 +49,32 @@ let promise = new Promise(
         // reject ('Co loi')
     }
 );
-  
+
+// Chain
+
+
 promise
-    .then(function(course) {
-        console.log(course)       
+    .then(function() {
+        return new Promise(function(resolve) {
+            setTimeout(() => {
+                resolve('Huu Hng Nguyen')
+            },3000)
+        })
     })
+
+    .then(function(data) {
+        console.log(data)
+    })
+
     .catch(function(err) {
         console.log(err)
     })
+
     .finally(function() {
         console.log('Done')
     })
+
+
+
 
 
