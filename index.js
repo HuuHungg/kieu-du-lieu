@@ -1,21 +1,64 @@
-// 1. JSON là một định dạng dữ liệu (chuỗi)
-// 2. JavaScript object notation
-// 3. JSON: Number, Boolean, Null, Array, Object, String
-// Mã hoá / Giả mã
-// Encode /decode
-// Stringify: Từ Javascript types -> JSON
-// Parse:  Từ JSON -> Javascript types
+// Sync : Đồng bộ
+// Ásync: Bất đồng bộ (setTimeout, setInterval, fetch, XMLHttpRequest, file reading)
+// request animation frame
+
+// setTimeout(function() {
+//     console.log(1)
+// }, 1000)
+
+// console.log(2)
+
+// // Callback hell 
+// // Pyramid of doom
+// // Nỗi đau
+// setTimeout(function() {
+//     console.log(1) // viec 1
+//         setTimeout(function() {
+//             console.log(2) 
+//             setTimeout(function() {
+//                 console.log(3) 
+//                     setTimeout(function() {
+//                         console.log(4)
+//                     },1000)
+//             },1000)
+//         },1000)
+// },1000)
 
 
-let json1 = '["Javascript", "PHP"]'
-let json = '{"name": "Son dang", "age": 18}'
+// Lý thuyết, cách hoạt động
 
-let a = '"Huu Hung Nguyen"'
-console.log( JSON.parse(json))
+let promise = new Promise(
+    // Executor
+    function(resolve, reject) {
+        // Logic
+        // Thành công: resolve()
+        // Thất bại: reject()        
 
-console.log(JSON.stringify({
-    name: 'Song Dang',
-    age: 16,
-    test: function() {}
-}))
+        // Fake call API
+        resolve([
+            {
+                id: 1,
+                name: 'Javascript'
+            },
+            {
+                id: 2,
+                name: 'PHP'
+            }
+        ]);
+        
+        // reject ('Co loi')
+    }
+);
+  
+promise
+    .then(function(course) {
+        console.log(course)       
+    })
+    .catch(function(err) {
+        console.log(err)
+    })
+    .finally(function() {
+        console.log('Done')
+    })
+
 
