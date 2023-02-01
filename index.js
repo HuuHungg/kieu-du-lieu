@@ -1,28 +1,20 @@
-// Fetch
+let courseApi ="http://localhost:3000/course"
 
-
-let postApi = 'https://jsonplaceholder.typicode.com/posts';
-
-fetch(postApi)
-    .then((response) => {
-        return response.json()  
-    })
-    
-    .then((data) => {
-        let htmls = data.map((post)=> {
-            return `
-                <h1> ${post.id} </h1>
-                <h2> ${post.title}</h2>
-                <p> ${post.body} </p>
-            `
-        })
-
-        let html = htmls.join('')
-        document.getElementById('post-block').innerHTML = html
+fetch(courseApi)
+    .then(function(responsive) {
+        return responsive.json()
     })
 
-    .catch((err) => {
-        console.log('Khoa hoc bi loi')
+    .then((course)=> {
+        console.log(course)
     })
 
-    
+
+//  CRUD 
+    // - Create: Tạo mới - POST: Tạo dữ liệu
+    // - Read: Lấy dữ liệu - GET: Lấy dữ liệu
+    // - Update: Chỉnh sửa  - PUT/ PATCH: Chỉnh sửa
+    // - Delete: Xoá dữ liệu - DELETE: Xoá 
+
+// Rest API 
+        
