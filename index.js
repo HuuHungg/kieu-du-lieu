@@ -3,25 +3,26 @@
 
 let postApi = 'https://jsonplaceholder.typicode.com/posts';
 
-// stream
 fetch(postApi)
     .then((response) => {
-        return response.json()
-    
+        return response.json()  
     })
-
-    .then((posts) => { 
-        let htmls = posts.map((post) => {
+    
+    .then((data) => {
+        let htmls = data.map((post)=> {
             return `
-                <h2>${post.title}</h2>
-                <h3> ${post.id} </h3>
+                <h1> ${post.id} </h1>
+                <h2> ${post.title}</h2>
                 <p> ${post.body} </p>
             `
         })
+
         let html = htmls.join('')
         document.getElementById('post-block').innerHTML = html
     })
-    
-    .catch(function(err) {
-        alert('Co loi')
+
+    .catch((err) => {
+        console.log('Khoa hoc bi loi')
     })
+
+    
