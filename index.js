@@ -1,37 +1,36 @@
+// Classes
 
-// Khi mà viết Arrow function không có dấy {} thì nó hiểu là retrun luôn
-// Còn khi có dấu {} thì nó sẽ hiểu viết khối code trong đó và phải return
+// function Course(name, price) {
+//     this.name = name;
+//     this.price = price;
+// }
 
-const sum = (a,b) => {
-    return {
-        a:a,
-        b:b
+
+class Course {
+    constructor(name,price) {
+        this.name = name;
+        this.price = price;
     }
+
+    getName() {
+        return this.name
+    }
+    
+    getPrice() {
+        return this.price
+    }
+
+    
 }
 
-console.log(sum(2,2))
+const phpCourse = new Course('PHP', 1000)
+const jsCourse = new Course('Javascript', 1200)
 
-
-const logger = (log) => console.log(log)
-logger('Huu Hung Nguyen ...')
-
-const course = {
-    name: 'Javascript basic',
-    getName: function() {
-       return this.name; // context arrow function không có context
-    }
-}
-
-console.log(course.getName())
-
-
-
-// arrow function trong trường hợp này sẽ bị lỗi
-let Course = (name, addrest) => {
-    this.name = name;
-    this.addrest = addrest
-} 
-
-let jsCourse =  new Course ('Huu Hung', 'Viet Nam')
+console.log(phpCourse);
 console.log(jsCourse)
 
+
+
+
+
+    
