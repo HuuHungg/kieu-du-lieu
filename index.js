@@ -1,36 +1,7 @@
-// Classes
+//  Default parameter value : Định nghĩa ra giá trị mặc định cho những tham số
 
-// function Course(name, price) {
-//     this.name = name;
-//     this.price = price;
-// }
-
-
-class Course {
-    constructor(name,price) {
-        this.name = name;
-        this.price = price;
-    }
-
-    getName() {
-        return this.name
-    }
-    
-    getPrice() {
-        return this.price
-    }
-
-    
+function logger(log, type = 'log') {
+    console[type](log)
 }
 
-const phpCourse = new Course('PHP', 1000)
-const jsCourse = new Course('Javascript', 1200)
-
-console.log(phpCourse);
-console.log(jsCourse)
-
-
-
-
-
-    
+logger('Message...', 'error');
