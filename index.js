@@ -1,30 +1,43 @@
+// Rest Lấy ra những phần còn lại
+let array = ['Javascript', 'PHP', 'Ruby']
 
-// Enhanced object literals
-// 1. Định nghĩa key: value cho object
-// 2. Định nghĩa method cho object
+let [a,b, ...rest] = array // Destructuring (array thì dùng ngoặc vuông)
+// vì array không có key nên đặt tên gì cũng được
 
-let name = 'Javascript basic study from zero to hero'
-let price = 2400
+console.log(a,b)
+console.log(rest)
 
-let courses = {
-    name,
-    price,
-    getName() {
-        return name
+
+let course = {
+    name: 'Javascript-bassic',
+    price: 1000,
+    image: 'image-address',
+    children: {
+        name: 'Huu Hung Nguyen'
     }
+
 }
 
-console.log(courses.getName())
 
+let {name: parentName, children: {name: childrenName} , ...rest2} = course; // Destructuring (object thì dùng ngoặc nhọn)
+// vì object có key và value nên là lấy ra đúng tên key and value
+// Nếu đưa vào một cái không tồn tại thì nó sẽ trả về undefine
 
-// 3. Định nghĩa key cho object dưới dạng biến 
+console.log(parentName)
+console.log(childrenName)
 
-let fieldName = 'new-name'
-let fieldPrice = 'price'
+let {name, description = 'default description'} = course
+// nếu không có defaut thì nó sẽ trả về default description 
+// Nếu có thì nó sẽ trả về giá giá trị đấy
 
-let course2 = {
-    [fieldName]: 'Khoa hoc fullstack',
-    [fieldPrice]: 2600
+console.log(name)
+console.log(description)
+
+// function
+
+function logger(...prams) {
+    console.log(prams)
 }
+logger(1,2,3,4,5)
 
-console.log(course2)
+
