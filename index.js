@@ -1,17 +1,13 @@
-// Tagged template literals
+// module: 
+//import: nạp vào 
+//export: xuất ra
 
-function highlight ([first, ...strings], ...values) {
-    return values.reduce(
-        (acc, crr) => [...acc, `<span> ${crr} </span>`, strings.shift()], 
-        [first]
-    )
-    .join('')
-} 
+// Nạp logger từ logger.js
+import {logger2} from './logger/index.js'
+// import {TYPE_ERROR,TYPE_LOG,TYPE_WARN} from './constans.js' 
+import * as constants from './constans.js' 
+//as tất cả các file export 
+console.log(constants)
 
-
-let branch = 'F8';
-let course = 'Javascript';
-
-let html = highlight `Học lập trình ${course} tại ${branch}!`;
-console.log(html)
+logger2('日本語を勉強してる', constants.TYPE_WARN) 
 
