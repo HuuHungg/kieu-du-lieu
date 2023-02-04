@@ -1,97 +1,96 @@
-// Global
-let message = 'Hoc ve scope'
-function log() {
-    console.log('毎日ITを勉強してる頑張りましょう')
-}
+// function createCounter() {
+//     let counter = 0
+    
+//     function increase() {
+//         return ++counter
+//     }
 
-function logger () {
-    console.log(message)
-    log()
-}
+//     return increase
+// }
 
-logger()
+// const counter1 = createCounter()
+
+// console.log(counter1())
+// console.log(counter1())
+// console.log(counter1())
+
+// let counter2 = createCounter()
+
+// console.log(counter2())
+// console.log(counter2())
+// console.log(counter2())
 
 
-// Codeblock
+// Viết code ngắn gọn hơn
 
-{
-    const age = 18
-    console.log(age)
-}
-
-
-
-// Local scope: Tạo ra từ phần thân của hàm khi hàm đó được gọi 
-
-function logger2() {
-    function name() {
-        console.log('Huu Hung Nguyen dang hoc IT')
+function logger(namespace) {
+    function logger2(message) {
+        console.log(`[${namespace}] ${message}`)
     }
-    name()
-
-    let message2 = "THUOC CODE BLOCK"
-    console.log(message2)
+    return logger2
 }
 
-logger2()
+let info = logger('Info')
+
+info('Khoa hoc ReactJS')
+info('Khoa hoc NODE IS')
+
+let error = logger('Error')
+error('Khoa hoc HTML/CSS')
+error('Khoa hoc index.html, index.js')
 
 
-// Các hàm có thể truy cập các biến được khai báo trong phạm vi của nó và bên ngoài nó 
+function createStorage(key) {
+    const store = JSON.parse(localStorage.getItem(key)) ?? {}
 
-function fullNam(first,last) {
-    console.log(first,last)
-    let age = 20
-    console.log(age,message) // Hàm message là hàm bên ngoài thuộc phạm vi scope nên có thể truy cập được
+    const save = () => {
+        localStorage.setItem(key, JSON.stringify(store))
+    }
 
-
-}
-
-fullNam('Huu','Hung')
-fullNam('Son', 'Dang')
-fullNam('Thuy', 'Trang') 
-
-// Biến được tạo ra ở hộp lớn hơn có thể truy cập ở hộp bé hơn và còn biến ở họp bé hơn thì không thể truy cập ở hộp lớn hơn
-
-function logger3() {
-    let age = 48
-        function logger4() {
-            console.log(age)        
+    const storage = {
+        get(key) {
+            return store[key]
+        },
+        set(key,value) {
+            store[key] = value
+            save()
+        },
+        remove(key) {
+            delete store[key]
+            save()
         }
-        logger4()
-}   
-logger3()
+    }
 
-// - Cách thức một biến được truy cập
+    return storage
+}
 
-let year = 20
-{
-    let year = 19
-    {
-        {
-            {
-                
-                console.log(year)
+// Profile.js
 
-                // let year2 = 100 coder here can't find
-            }
-        }1
+const profileSetting = createStorage('profile_setting')
+console.log(profileSetting.remove('fullName'))
+
+profileSetting.set('fullName', 'Huu Hung')
+profileSetting.set('age', 20)
+profileSetting.set('address', 'Ha Noi')
+
+
+
+
+function createApp() {
+    const cars = []
+    
+    return {
+        add(car){
+            cars.push(car)
+        },
+        show() {
+            console.log(cars)
+        }
     }
 }
 
-// Output = 10
-
-
-function makeCouter () {
-    let couter = 0
-
-    function increase() {
-        return ++couter
-    }
-    return increase
-}
-
-const increase1 = makeCouter()
-
-console.log(increase1())
-console.log(increase1())
-console.log(increase1())
+const app = createApp()
+app.add('BMW')
+app.add('PHP')
+app.honda('Mercedes')
+app.show()
