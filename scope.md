@@ -1,13 +1,19 @@
-# closure
+Báo lỗi hoặc ngăn chặn khi sử dụng những đoạn mã không an toàn hay dễ gây nhầm lẫn
 
-- Là một hàm có thể ghi nhớ nơi được tạo và truy cập được biến bên ngoài phạm vi của nó 
+Cách sử dụng:
 
-## Ứng dụng 
-- Viết code ngắn gọn hơn 
-- Biểu diễn, ứng dụng tính private trong OOP
+1. Thêm "use strict" và đầu file .js
+2. Thêm "use strict" vào ngay sau thẻ mở <script>
+3. Thêm "use strict" vào đầu phạm vi hàm 
 
-## Tóm tắt
+- usestrict phải đứng đầu phạm vi trước nó không được có đoạn code nào cả 
 
-## Lưu ý
-- Biến được tham chiếu (refer) trong clouse sẽ không được xoá khỏi bộ nhớ khi hàm cha thực thi xong
-- Các khái niệm Javarscript nâng cao rất dễ gây nhầm lẫn
+- Báo lỗi khi gán lại giá trị cho thuộc tinh có writeable: false
+- Báo lỗi khi hàm có tham số trùng tên
+- Khai báo hàm trong code block thì hàm sẽ thuộc phạm vi code block
+- Không đặt tên biến tên hàm bằng một số từ khoá 'nhạy cảm' của ngôn ngữ
+
+// Công dụng
+1. Tránh quên những từ khoá khai báo biến
+2. Tránh trùng tên biến dẫn tới lỗi logic
+3. Sử dụng bộ nhớ hiệu quả vì tránh tạo biến global
