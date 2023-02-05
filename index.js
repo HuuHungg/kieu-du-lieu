@@ -1,20 +1,69 @@
-// Strict mode
-"use strict"; // Sử dụng nghiêm ngặt    
+// Value types (Kiểu tham trị)
+let a = 1
+let b = a
 
-fullName = 'Huu Hung Nguyen'
+a = 2
+console.log(b)
 
-function testFunc() {
-    // "use strict"
-    age = 18 // Tạo ra biến age ở phạm vi Global
+// Reference type (Kiểu tham chiếu)
+
+let c = {
+    name: 'Mercedes'
 }
 
-testFunc()
-console.log(fullName)
-console.log(age)
+let d = c
+
+c.name = 'BMW'
+
+console.log(c)
 
 
-function sum(a,a) {
-    return a + a
+// Value type Mổi giá trị được lưu vào vùng nhớ khác nhau nó chép ra một ô nhớ mới
+// Sưa ô nhớ này nó sẽ không liên quan đến ô nhớ khác     
+function sum(a,b) {
+    // let a = f
+    // let b = g
+    a = 0
+    b = 0
+    console.log(a,b)
 }
-console.log(sum(6,9))
 
+let f = 1
+let g = 2
+sum(f,g)
+
+console.log(f,g)
+
+
+// Referent type: Kiểu tham chiếu
+
+function func(obj) {
+    obj.name = 'Mercedes'
+    console.log(obj)
+}   
+
+const h = {
+    name: 'BMW'
+}
+
+
+func(h)
+console.log(h)
+
+// Side effect
+
+function createCar(obj) {
+    obj = JSON.parse(JSON.stringify(obj))
+    obj = {...obj}
+    obj.name = 'Mercedes'
+    return obj
+}
+
+const car = {
+    name: 'BMW'
+}
+
+const newCar = createCar(car)
+
+console.log(car)
+console.log(newCar)
