@@ -8,6 +8,5 @@ Từ khoá this trong Javascript đề cập đến đối tượng mà nó thu�
     - 
 ## 
     - Các phương thức bind() call() apply() có thểm tham chiếu this tới đối tượng khác
-    - Trong hầu hết các trường hợp thì this trả về đối tượng mà nó thuộc về
+    - Trong hầu hết các trường hợp thì this trả về đối tượng mà nó thuộc về,
 
-    

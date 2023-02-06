@@ -63,7 +63,10 @@ nameCar.prototype.run = function() {
 
 const porCher = new nameCar ('mercedes','red')
 const CarPark = new nameCar ('BMW', 'Blue')
+const motobikePark = new nameCar ('lead', 'white')
 
 console.log(porCher.run())
 console.log(CarPark.run())
+console.log(motobikePark.run())
 
+// Bài về this
