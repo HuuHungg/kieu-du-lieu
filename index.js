@@ -1,69 +1,69 @@
-// Value types (Kiểu tham trị)
-let a = 1
-let b = a
+let iphone7 = {
+    // Thuoc Tinh - Property
+    name: 'iphone7',
+    color: 'Pink',  
+    weight: 300,
 
-a = 2
-console.log(b)
 
-// Reference type (Kiểu tham chiếu)
+    // Phuong thuc - method
+    takePhoto() {
+        console.log(this)
+    },
+    objChild: {
+        methodChild() {
+            name: 'Child Object',
+            console.log(this) 
+        }
+    }
 
-let c = {
-    name: 'Mercedes'
 }
 
-let d = c
-
-c.name = 'BMW'
-
-console.log(c)
+console.log(iphone7.takePhoto())
+iphone7.objChild.methodChild() // this ở đây là objChild
 
 
-// Value type Mổi giá trị được lưu vào vùng nhớ khác nhau nó chép ra một ô nhớ mới
-// Sưa ô nhớ này nó sẽ không liên quan đến ô nhớ khác     
-function sum(a,b) {
-    // let a = f
-    // let b = g
-    a = 0
-    b = 0
-    console.log(a,b)
+function Car (name,color, weight) {
+    this.name = name;
+    this.color = color;
+    this.weight = weight;
+
+    this.run = function() {
+        console.log('Running...', this)
+    }
 }
 
-let f = 1
-let g = 2
-sum(f,g)
+let Carpark = new Car ('Mercedes', 'Black', 2000)
+console.log(Carpark.run)
 
-console.log(f,g)
+const button = document.querySelector('button')
 
-
-// Referent type: Kiểu tham chiếu
-
-function func(obj) {
-    obj.name = 'Mercedes'
-    console.log(obj)
-}   
-
-const h = {
-    name: 'BMW'
+button.onclick = function() {
+    console.log(this)
 }
 
-
-func(h)
-console.log(h)
-
-// Side effect
-
-function createCar(obj) {
-    obj = JSON.parse(JSON.stringify(obj))
-    obj = {...obj}
-    obj.name = 'Mercedes'
-    return obj
+function nameCar(name,color) {
+    this.name = name;
+    this.color = color;
+    
+    // this.run = function() {
+    //     console.log(this)
+    // }    
 }
 
-const car = {
-    name: 'BMW'
+nameCar.prototype.run = function() {
+    // Mỗi function trong Javascript đều có ngữ cảnh chạy riêng
+    // Nếu ở trong strict mode sẽ là undefine
+    // Context
+    function test() {
+        console.log(this) // This ở trong hàm này sẽ là windown
+    }
+
+    test() 
 }
 
-const newCar = createCar(car)
+const porCher = new nameCar ('mercedes','red')
+const CarPark = new nameCar ('BMW', 'Blue')
 
-console.log(car)
-console.log(newCar)
+console.log(porCher.run())
+console.log(CarPark.run())
+
