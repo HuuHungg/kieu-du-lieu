@@ -1,72 +1,69 @@
-function random() {
-    console.log(Math.random())
-}
-
-random()
-
-
 let teacher = {
-    firstName: "Huu",
-    lastName: "Hung"
+    firstName: 'Minh',
+    lastName: 'Thu',
 }
 
-let me = {
-    firstName: 'Son',
-    lastName: 'Dang',
-    showfullName() {
-        console.log(`${this.firstName} ${this.lastName} `)
+function greet(greeting, message) {
+    return `${greeting} ${this.firstName} ${this.lastName} ${message}`
+}
+
+let result = greet.apply(teacher, ['Em chao co', 'Co day mon gi the a'])
+console.log(result)
+
+// So sanh voi call() method
+result = greet.call(teacher, 'Em chao co', 'Co day mon gi the a')
+
+console.log(result)
+
+
+
+// VD2 mượn hàm
+
+let teacher2 = {
+    firstName: 'Huu Hung',
+    lastName: 'Nguyen',
+    isOnline: false,
+    goOnline() {
+        this.isOnline = true
+        console.log(`${this.firstName} ${this.lastName} is Online`)
+    },
+    goOffline() {
+        this.isOffline = true
+        console.log(`${this.firstName} ${this.lastName} is Offline`)
     }
 }
 
-me.showfullName.call(teacher)
+let me = {
+    firstName: 'Thuy',
+    lastName: 'Trang',
+    isOnline: false
+}
+
+
+console.log('Teacher', teacher2.isOnline)
+teacher2.goOnline()
+console.log('Teacher', teacher2.isOnline)
+
+console.log('--------')
+
+console.log('Student', me.isOnline)
+teacher2.goOnline.apply(me)
+console.log('Student: ', me.isOnline)
 
 
 function Animal(name, weight) {
-    this.name = name;
-    this.weight = weight;
+    this.name = name
+    this.weight = weight
 }
 
-function Chicken(name, weight, legs) {
-    Animal.call(this, name, weight)
-    this.legs = legs
-    
+
+function Parrot() {
+    Animal.apply(this, arguments) // argument đại diện cho các tham số của chúng ta, 
+    this.speak = function() {
+        console.log('Nha co khach')
+    }
 }
 
-let sonDang = new Chicken('Son Dang', 66, 2)
-console.log(sonDang)
-
-//
-function logger() {
-     Array.prototype.forEach.call(arguments, item => {
-        console.log(item)
-     })
-
-     const cars = ['BMW','Honda']
-
-     cars.forEach(car => {
-        console.log(car)
-     })
-
-
-     
-}
-
-logger(1,2,3,4,5)
-
-
-function logger2() {
-    const arr = Array.prototype.slice.call(arguments)
-    arr.forEach(item => console.log(item))
-
-}
-
-logger2(1,2,3,4,5,6,7,8,9)
-
-
-function logger3() {
-    const arr = [...arguments]
-    console.log(arr)
-}
-
-logger3(10,11,12,14)
+let conVet = new Parrot('Vet', 300)
+console.log(conVet)
 

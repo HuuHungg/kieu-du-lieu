@@ -1,10 +1,27 @@
-// Call method
-Là phương thức trong prototype của Function constructor, phương thức này được dùng để gọi hàm và cũng có thể bind this cho hàm .
+Apply
 
-Ví dụ: 
-    - Gọi hàm với call method
-    - Gọi hàm với bind this, lưu ý trong strictmode vẫn có this nếu được bind
-    - Thể hiện tính kế thừa (extend) trong OOB
-    - Mượn hàm (function borrowing), thêm ví dụ với argument
+Phương thức này cho phép gọi một hàm với một this (bind) và truyền đối số cho hàm gốc dưới dạng mảng
+
+Giống nhau
+
+- Cú pháp truy cập
+
+function fn() {}
+    // bind 
+    fn.bind()
+
+    // call
+    fn.call
+
+    //apply
+    fn.apply
+
+Là các methods được thừa kế từ Function.prototype
+
+function() {}
+
+fn.bind === Function.prototype.bind // true
+fn.call === Function.prototype.call // true
+fn.apply === Function.prototype.apply // true
 
 
