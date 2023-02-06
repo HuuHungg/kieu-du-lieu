@@ -1,98 +1,72 @@
+function random() {
+    console.log(Math.random())
+}
+
+random()
+
 
 let teacher = {
-    firstName: 'Minh',
-    lastName: "Thảo",
-    getFullName(data1,data2) {
-        console.log(data1,data2)
-        return `${this.firstName} ${this.lastName}`
+    firstName: "Huu",
+    lastName: "Hung"
+}
+
+let me = {
+    firstName: 'Son',
+    lastName: 'Dang',
+    showfullName() {
+        console.log(`${this.firstName} ${this.lastName} `)
     }
 }
 
+me.showfullName.call(teacher)
 
-let student = {
-    firstName: "Huu Hung",
-    lastName: "Nguyen"
+
+function Animal(name, weight) {
+    this.name = name;
+    this.weight = weight;
 }
 
-
-// Case 1:
-console.log(teacher.getFullName()) // "Minh Thao"
-
-// Case 2:
-const getTeacherName = teacher.getFullName.bind(student) // Các từ khoá mà truyền vào bind thì nó sẽ răngg buộc đến từ khoá ở trong obj đấy
-console.log(getTeacherName('Test1', 'Test2')) // "Minh Thu"
-
-
-
-
-let teacher2 = {
-    firstName: "Thuy",
-    lastName: "Trang",
-    getFullName() {
-        console.log(`${this.firstName} ${this.lastName}`)
-    }
-}
-
-let button = document.querySelector('button')
-button.onclick = teacher2.getFullName.bind(teacher2)
-
-
-
-let $ = document.querySelector.bind(document)
-let $$ = document.querySelectorAll.bind(document)
-console.log($('#heading'))
-
-
-
-const app = (() => {
-    let cars = ['BMW', 'Mercedes']
+function Chicken(name, weight, legs) {
+    Animal.call(this, name, weight)
+    this.legs = legs
     
-    const root = $('#root')
-    const input = $('#input')
-    const submit = $('#submit')
+}
+
+let sonDang = new Chicken('Son Dang', 66, 2)
+console.log(sonDang)
+
+//
+function logger() {
+     Array.prototype.forEach.call(arguments, item => {
+        console.log(item)
+     })
+
+     const cars = ['BMW','Honda']
+
+     cars.forEach(car => {
+        console.log(car)
+     })
 
 
-    return {
-        add(car) {
-            cars.push(car)
-        },
-        delete(index) {
-            cars.splice(index,1)
-        },
-        render() {
-            const html = cars.map((car,index) => `
-                <li>
-                    ${car}  
-                    <span class="delete" data-index="${index}"> x </span>
-                 </li>
-            `)
-            .join('')
-            root.innerHTML = html
-        },
-        handleDelete(e) {
-            let deleteBtn = e.target.closest('.delete')
-            if (deleteBtn) {
-                const index = deleteBtn.dataset.index
-                console.log(this)
-                this.delete(index)
-                this.render()
-            }
-        }, 
-        init() {
-            // Handle DOM events
-            submit.onclick = () => {
-                    let car = input.value
-                    this.add(car)
-                    this.render()
+     
+}
 
-                    input.value = null
-                    input.focus()
-            }
+logger(1,2,3,4,5)
 
-            root.onclick = this.handleDelete.bind(this)
-            this.render()
-        }   
-    }
-})()
-app.init()
-// Delegate()
+
+function logger2() {
+    const arr = Array.prototype.slice.call(arguments)
+    arr.forEach(item => console.log(item))
+
+}
+
+logger2(1,2,3,4,5,6,7,8,9)
+
+
+function logger3() {
+    const arr = [...arguments]
+    console.log(arr)
+}
+
+logger3(10,11,12,14)
+
